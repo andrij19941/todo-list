@@ -15,12 +15,16 @@ function App() {
 		console.log(newTodos);
 		setTodos(newTodos);
 	};
+	const removeTodo = (id) => {
+		let updatedTodos = [...todos].filter((todo) => todo.id !== id);
+		setTodos(updatedTodos);
+	};
 	return (
 		<div className="todo-app">
 			<h1>Todo List</h1>
 			<TodoForm addTodo={addTodo} />
 			{todos.map((todo) => {
-				return <TodoItem key={todo.id} todo={todo} />;
+				return <TodoItem removeTodo={removeTodo} key={todo.id} todo={todo} />;
 			})}
 		</div>
 	);

@@ -1,11 +1,15 @@
 import React from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
+import { BiCheckCircle } from 'react-icons/bi';
+
 export default function TodoItem(props) {
+	const { todo, removeTodo } = props;
 	return (
 		<div className="todo-row">
-			{props.todo.text}
+			{todo.text}
 			<div className="iconsContainer">
-				<RiCloseCircleLine className="icon" />
+				<RiCloseCircleLine  onClick={() => removeTodo(props.todo.id)} />
+				<BiCheckCircle onClick={}/>
 			</div>
 		</div>
 	);
